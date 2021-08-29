@@ -1,0 +1,7 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  
+    - name: Execute the script and start service/nginx
+      command: sh ~/webserver.sh.sh

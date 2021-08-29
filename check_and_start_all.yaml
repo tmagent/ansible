@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+    - name: check docker status
+      command: service docker status
+
+    - name: verify docker listning on 80
+      wait_for: port=80 timeout=1
+      
+    - name: ensure docker started
+      service: name=docker state=started
+      
+    - name: All services starting
+      command: sh ~/service_start.sh

@@ -1,0 +1,7 @@
+---
+- hosts: all
+  become: true
+  tasks: 
+  
+    - name: Execute the script
+      command: sh ~/service_start.sh

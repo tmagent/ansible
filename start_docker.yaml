@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: true
+  tasks: 
+    - name: ensure docker started
+      service: name=docker state=started  
