@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: true
+  tasks: 
+     
+    - name: copy file from local
+      copy: src=app/ dest=~/ mode=0755     
+      
+    - name: check docker status
+      command: service docker status
+      
+    - name: verify docker listning on 80
+      wait_for: port:80 timeout=1
+      
+    - name: Execute the script and start service/nginx
+      command: sh ~/service_start.sh
