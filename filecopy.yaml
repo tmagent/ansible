@@ -1,7 +1,0 @@
----
-- hosts: all
-  become: true
-  tasks: 
-  
-    - name: copy file
-      copy: src=app/ dest=~/ mode=0755
